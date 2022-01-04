@@ -1,0 +1,83 @@
+body{
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+  height:100vh;
+  width:100vw;
+  align-items:center;
+  transition: 2s;
+
+}
+div#quote-box{
+  height :500px;
+  width:800px;
+  background-color : white;
+  color: black;
+  font-size:30px;
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  border-radius:15px;
+  align-items:center;
+ -webkit-box-shadow: 0px 0px 74px -17px rgba(0,0,0,0.89);
+-moz-box-shadow: 0px 0px 74px -17px rgba(0,0,0,0.89);
+box-shadow: 0px 0px 74px -17px rgba(0,0,0,0.89);
+}
+button{
+  color: white;
+  transition:2s;
+  width:140px;
+  padding-top:70px;
+  height: 45px;
+}
+p#buttonDescribe{
+  color:white;
+  font-size:20px;
+}
+
+img{
+  border-radius: 50%;
+  height:50px;
+  width:50px;
+}
+p#author{
+  font-size:20px;
+  font-weight: bold;
+}
+@media (max-width:600px){
+ div#quote-box{
+  height :400px;
+  width:200px;
+  background-color : white;
+  color: black;
+  font-size:10px;
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items:center;
+}
+  img{
+    width:20px;
+    height:20px;
+  }
+  button{
+    color: white;
+    transition:2s;
+    width:140px;
+    padding-top:70px;
+    height: 30px;
+  }
+  p#buttonDescribe{
+    color:white;
+    font-size:10px;
+  }
+  p#author{
+  font-size:6px;
+  font-weight: bold;
+  }
+}
+
+p#shareQuote{
+  border-top:1px solid black;
+  letter-spacing:2px;
+}

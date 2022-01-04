@@ -1,0 +1,57 @@
+//
+// function createGraphic(id){
+//   var ctx = document.getElementById(id).getContext('2d');
+//   var myChart = new Chart(ctx, {
+//   type: 'line',
+//   data: {
+//       labels: ["06:00","07:00","08:00","09:00","10:00"],
+//       datasets: [{
+//           label: 'Apple',
+//           data: [5,1,10,15],
+//           backgroundColor: [
+//               'rgba(255, 255, 255,0)'
+//           ],
+//           borderColor: [
+//               'rgba(0, 0, 0, 1)'
+//           ],
+//           borderWidth: 1,
+//           order:0
+//       }]
+//   },
+//   options: {
+//     responsive:true,
+//     maintainAspectRatio: false,
+//     scales: {
+//       yAxes: [{
+//         stacked: true,
+//         gridLines: {
+//           display: false,
+//           color: "rgba(255,99,132,0.2)"
+//         }
+//       }],
+//       xAxes: [{
+//         gridLines: {
+//           display: false
+//         }
+//       }]
+//     }
+//   }
+//   });
+// }
+//
+// createGraphic("1");
+// var data ={
+//       labels: [],
+//       datasets: [{
+//           label: 'Apple',
+//           data: [],
+//           backgroundColor: [
+//               'rgba(255, 255, 255,0)'
+//           ],
+//           borderColor: [
+//               'rgba(0, 0, 0, 1)'
+//           ],
+//           borderWidth: 1,
+//           order:0
+//       }]
+//   }

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="RandomQuoteStyle.css">
+
+    <title>RanDomQuote</title>
+  </head>
+  <body>
+    <div id="Hello"></div>
+  </body>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  <script src="https://unpkg.com/react/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script type="babel">
+  var randomIndex = Math.floor(Math.random() * Math.floor(1601));
+class RandomQuote extends React.Component {
+constructor(props) {
+  super(props);
+  this.state = {
+    getQuote: []
+  };
+  this.handleButton = this.handleButton.bind(this);
+}
+componentDidMount() {
+  fetch("https://type.fit/api/quotes")
+    .then((res) => res.json())
+    .then(
+      (result) => {
+        this.setState({
+          getQuote: result[randomIndex]
+        });
+      }
+    );
+}
+handleButton() {
+  var newRandom = Math.floor(Math.random() * Math.floor(1601));
+  while (newRandom == randomIndex) {
+    newRandom = Math.floor(Math.random() * Math.floor(1601));
+  }
+  if (newRandom != randomIndex) {
+    randomIndex = newRandom;
+  }
+  fetch("https://type.fit/api/quotes")
+    .then((res) => res.json())
+    .then(
+      (result) => {
+        this.setState({
+          getQuote: result[newRandom]
+        });
+      }
+    );
+}
+render() {
+  const {getQuote } = this.state;
+  var url = "https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=" +  this.state.getQuote['text'] + this.state.getQuote['author']
+  var twitter = "https://www.newsgram.com/wp-content/uploads/2018/04/twitter-2430933_1280-1.png"
+
+    return (
+      <div id="quote-box">
+        <p id="text" class="text-primary text-center">
+          {getQuote["text"]}
+        </p>
+        <p id="author">--{getQuote["author"]}--</p><br></br>
+        <button id="new-quote" class="btn btn-default" onClick={this.handleButton}><p id ="buttonDescribe">See More</p></button><br></br>
+        <p id="shareQuote">Share Quote</p>
+          <a id ="tweet-quote" href= {url} target="_blank"><img src={twitter} width="70px" height="50px"></img></a>
+
+      </div>
+    );
+
+}
+}
+
+ReactDOM.render(<RandomQuote />, document.getElementById("Hello"));
+
+var arrayColor = ["#F8B195", "#F67280", "#C06C84", "#6C5B7B", "#355C7D","#F5E2E4","#218B82", "#9AD9DB", "#E5DBD9", "#98D4BB ","#EB96AA"];
+var randomColor = Math.floor(Math.random() * Math.floor(arrayColor.length));
+
+$(document).ready(function () {
+$("body").css("background-color", arrayColor[randomColor]);
+$("button").css("background-color", arrayColor[randomColor]);
+$("#new-quote").click(function () {
+  randomColor = Math.floor(Math.random() * Math.floor(arrayColor.length));
+  $("body").css("background-color", arrayColor[randomColor]);
+  $("#new-quote").css("background-color", arrayColor[randomColor]);
+});
+});
+
+  </script>
+</html>
